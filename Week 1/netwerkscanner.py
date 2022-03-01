@@ -23,9 +23,12 @@ def get_mac_ip():
             
 
 def get_hostnaam():
-        hostnaam = socket.gethostbyaddr(doelwit) #hier zoekt hij de hostname via het ip address
-        print("Hostnaam :  ",hostnaam[0])
-        w.write("\n" + "Hostnaam : ",hostnaam[0])
+    try:
+        hostnaam = socket.gethostbyaddr(doelwit)
+        print("Hostname :  ",hostnaam[0])
+    except:
+        print("Geen hostname gevonden")
+        w.write("\Geen hostname gevonden!\n")
     
 
 
